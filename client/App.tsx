@@ -27,8 +27,10 @@ const App = () => (
         <Navigation />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/learn-hub" element={<LearnHub />} />
           <Route path="/game-levels" element={<GameLevels />} />
           <Route path="/flashcards" element={<Flashcards />} />
+          <Route path="/study-notes" element={<StudyNotes />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

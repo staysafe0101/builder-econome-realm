@@ -27,10 +27,37 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-econome-green-50 via-white to-econome-blue-50">
       {/* Hero Section */}
-      <section className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative px-4 pt-16 pb-20 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute top-10 left-10 animate-float">
+          <div className="w-12 h-12 bg-econome-yellow-400 rounded-full animate-coin-flip opacity-70">
+            💰
+          </div>
+        </div>
+        <div className="absolute top-20 right-16 animate-bounce delay-200">
+          <div className="w-8 h-8 bg-econome-green-300 rounded-full opacity-60">
+            💵
+          </div>
+        </div>
+        <div className="absolute bottom-32 left-8 animate-wiggle delay-500">
+          <div className="w-6 h-6 bg-econome-blue-400 rounded-full opacity-80">
+            🏦
+          </div>
+        </div>
+        <div className="absolute bottom-20 right-12 animate-float delay-300">
+          <div className="w-10 h-10 bg-econome-yellow-500 rounded-full animate-pulse opacity-70">
+            📊
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="mb-8">
-            <CashMascot size="large" animated={true} />
+            <CashMascot
+              size="large"
+              animated={true}
+              mood="excited"
+              showCoins={true}
+            />
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-bold text-econome-green-800 mb-6">

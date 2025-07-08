@@ -123,6 +123,9 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        wiggle: "wiggle 1s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
+        "coin-flip": "coin-flip 2s ease-in-out infinite",
       },
     },
   },

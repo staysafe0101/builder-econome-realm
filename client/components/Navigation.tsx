@@ -9,8 +9,9 @@ export default function Navigation() {
 
   const navItems = [
     { path: "/", label: "Home", icon: Home },
-    { path: "/game-levels", label: "Game Levels", icon: Gamepad2 },
+    { path: "/learn-hub", label: "Learn Hub", icon: Gamepad2 },
     { path: "/flashcards", label: "Flashcards", icon: CreditCard },
+    { path: "/study-notes", label: "Study Notes", icon: BookOpen },
     { path: "/profile", label: "Profile", icon: User },
     { path: "/about", label: "About", icon: Info },
   ];

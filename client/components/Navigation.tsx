@@ -1,6 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Home, Gamepad2, CreditCard, User, Info, Menu, X } from "lucide-react";
+import {
+  Home,
+  Gamepad2,
+  CreditCard,
+  User,
+  Info,
+  Menu,
+  X,
+  BookOpen,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function Navigation() {

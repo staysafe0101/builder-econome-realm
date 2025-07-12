@@ -25,93 +25,12 @@ import {
   Filter,
 } from "lucide-react";
 
-const studyNotes = getAllStudyNotes();
-  {
-    id: 2,
-    title: "Credit Card Fundamentals",
-    category: "Credit",
-    difficulty: "Intermediate",
-    icon: CreditCard,
-    color: "econome-blue",
-    content: [
-      "💳 **Credit Score Range:** 300-850 (higher is better!)",
-      "⚡ **Payment History:** Most important factor (35% of score)",
-      "📊 **Credit Utilization:** Keep below 30% of available credit",
-      "⏰ **Pay On Time:** Late payments hurt your score badly",
-      "🚫 **Avoid:** Cash advances and maxing out cards",
-    ],
-    downloadSize: "1.8 MB",
-  },
-  {
-    id: 3,
-    title: "Investing for Teens",
-    category: "Investing",
-    difficulty: "Advanced",
-    icon: TrendingUp,
-    color: "econome-yellow",
-    content: [
-      "📈 **Compound Interest:** Your money grows faster over time",
-      "🎲 **Risk vs Reward:** Higher potential returns = higher risk",
-      "🏪 **Stock Market:** Buy pieces of companies you believe in",
-      "🔄 **Diversification:** Don't put all eggs in one basket",
-      "⏳ **Time Horizon:** Start early, even with small amounts!",
-    ],
-    downloadSize: "3.2 MB",
-  },
-  {
-    id: 4,
-    title: "Emergency Fund Essentials",
-    category: "Savings",
-    difficulty: "Beginner",
-    icon: Shield,
-    color: "econome-green",
-    content: [
-      "🆘 **What It Is:** Money saved for unexpected expenses",
-      "🎯 **Goal Amount:** 3-6 months of expenses (start with $500)",
-      "🏦 **Where to Keep:** High-yield savings account",
-      "🚫 **When to Use:** True emergencies only (not wants!)",
-      "💪 **Build Gradually:** Even $25/month makes a difference",
-    ],
-    downloadSize: "1.5 MB",
-  },
-  {
-    id: 5,
-    title: "Tax Basics for Teens",
-    category: "Taxes",
-    difficulty: "Intermediate",
-    icon: Calculator,
-    color: "econome-blue",
-    content: [
-      "📋 **W-2 Form:** Shows how much you earned and taxes paid",
-      "💵 **Standard Deduction:** Amount you don't pay taxes on",
-      "📅 **Tax Day:** April 15th (don't be late!)",
-      "💰 **Refund:** Getting back money you overpaid",
-      "🎓 **Teen Tip:** You might not owe taxes if you earn under $12,950",
-    ],
-    downloadSize: "2.0 MB",
-  },
-  {
-    id: 6,
-    title: "Banking 101",
-    category: "Banking",
-    difficulty: "Beginner",
-    icon: Building,
-    color: "econome-green",
-    content: [
-      "🏦 **Checking Account:** For daily spending and bill paying",
-      "💰 **Savings Account:** For money you want to keep and grow",
-      "💳 **Debit Card:** Spends money directly from your account",
-      "🔒 **Online Banking:** Manage money 24/7 from your phone",
-      "⚠️ **Fees:** Watch out for ATM and overdraft fees!",
-    ],
-    downloadSize: "1.7 MB",
-  },
-];
-
 export default function StudyNotes() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
+
+  const studyNotes = getAllStudyNotes();
 
   const categories = [
     "All",
@@ -141,6 +60,19 @@ export default function StudyNotes() {
     alert(`Downloading "${noteTitle}" study guide...`);
   };
 
+  const getIconComponent = (iconName: string) => {
+    const icons: { [key: string]: any } = {
+      PiggyBank,
+      CreditCard,
+      TrendingUp,
+      Shield,
+      Calculator,
+      Building,
+      BookOpen,
+    };
+    return icons[iconName] || BookOpen;
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-econome-green-50 via-white to-econome-blue-50">
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
@@ -159,7 +91,8 @@ export default function StudyNotes() {
             Study Notes
           </h1>
           <p className="text-xl text-gray-600">
-            Concise, colorful notes for every financial topic
+            Concise, colorful notes for every financial topic - Now with 50
+            comprehensive sets!
           </p>
         </div>
 
@@ -207,7 +140,8 @@ export default function StudyNotes() {
         {/* Study Notes Grid */}
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredNotes.map((note) => {
-            const IconComponent = note.icon;
+            const IconComponent = getIconComponent(note.icon);
+
             return (
               <Card
                 key={note.id}
@@ -248,9 +182,15 @@ export default function StudyNotes() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <BookOpen className="w-4 h-4" />
-                      <span>{note.downloadSize}</span>
+                    <div className="text-sm text-gray-600 space-y-1">
+                      <div className="flex items-center gap-2">
+                        <BookOpen className="w-4 h-4" />
+                        <span>{note.downloadSize}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Star className="w-4 h-4" />
+                        <span>{note.estimatedReadTime}</span>
+                      </div>
                     </div>
                     <Button
                       onClick={() => handleDownload(note.title)}

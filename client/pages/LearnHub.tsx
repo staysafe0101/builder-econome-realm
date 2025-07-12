@@ -29,12 +29,13 @@ export default function LearnHub() {
     {
       id: 1,
       title: "Interactive Games",
-      description: "Level up through Budget Basics, Credit Craze, and more!",
+      description:
+        "Level up through Budget Basics, Credit Craze, and 6 more games!",
       icon: Gamepad2,
       color: "econome-green",
       route: "/game-levels",
-      features: ["XP & Badges", "Progress Tracking", "Fun Challenges"],
-      stats: { levels: 4, completed: 2, difficulty: "All Levels" },
+      features: ["XP & Badges", "Progress Tracking", "8 Fun Games"],
+      stats: { levels: 8, completed: 2, difficulty: "All Levels" },
       isNew: false,
     },
     {

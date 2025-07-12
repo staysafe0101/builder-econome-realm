@@ -63,14 +63,14 @@ export default function LearnHub() {
     {
       id: 4,
       title: "AI Chat with Cash",
-      description: "Ask Cash anything about money and finance!",
+      description: "Chat with our 3D animated goose about any money topic!",
       icon: MessageCircle,
       color: "purple",
-      route: "#",
-      features: ["24/7 Available", "Teen-Friendly", "Instant Answers"],
+      route: "/chat-with-cash",
+      features: ["3D Animated", "Teen-Friendly", "Instant Answers"],
       stats: { questions: "∞", topics: "All", difficulty: "Any Level" },
       isNew: true,
-      isChat: true,
+      isChat: false,
     },
   ];
 

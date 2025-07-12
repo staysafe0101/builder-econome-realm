@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import CashMascot from "@/components/CashMascot";
+import { getAllStudyNotes } from "@/data/studyNotes";
 import {
   Search,
   Download,

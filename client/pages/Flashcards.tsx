@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import CashMascot from "@/components/CashMascot";
+import { getAllFlashcardSets } from "@/data/flashcards";
 import {
   Search,
   Shuffle,

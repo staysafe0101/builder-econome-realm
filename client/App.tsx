@@ -14,6 +14,7 @@ import LearnHub from "./pages/LearnHub";
 import GameLevels from "./pages/GameLevels";
 import Flashcards from "./pages/Flashcards";
 import StudyNotes from "./pages/StudyNotes";
+import ChatWithCash from "./pages/ChatWithCash";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";

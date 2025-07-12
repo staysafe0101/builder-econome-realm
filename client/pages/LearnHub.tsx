@@ -41,13 +41,13 @@ export default function LearnHub() {
     {
       id: 2,
       title: "Smart Flashcards",
-      description: "Master financial terms with interactive cards",
+      description: "Master financial terms with 100 sets of 50 cards each!",
       icon: CreditCard,
       color: "econome-blue",
       route: "/flashcards",
-      features: ["Word of the Day", "Smart Shuffling", "Progress Tracking"],
-      stats: { cards: 50, learned: 15, difficulty: "Beginner" },
-      isNew: false,
+      features: ["100 Sets", "5000 Terms", "Progress Tracking"],
+      stats: { sets: 100, cards: 5000, difficulty: "All Levels" },
+      isNew: true,
     },
     {
       id: 3,

@@ -37,6 +37,7 @@ const App = () => {
             <Route path="/game-levels" element={<GameLevels />} />
             <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/study-notes" element={<StudyNotes />} />
+            <Route path="/chat-with-cash" element={<ChatWithCash />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/about" element={<About />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -9,6 +9,7 @@ import {
   Menu,
   X,
   BookOpen,
+  MessageCircle,
 } from "lucide-react";
 import { useState } from "react";
 

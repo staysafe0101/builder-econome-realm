@@ -52,12 +52,12 @@ export default function LearnHub() {
     {
       id: 3,
       title: "Study Notes",
-      description: "Colorful, concise notes for every financial topic",
+      description: "50 comprehensive study sets covering all financial topics",
       icon: BookOpen,
       color: "econome-yellow",
       route: "/study-notes",
-      features: ["PDF Downloads", "Easy Navigation", "Visual Learning"],
-      stats: { notes: 6, topics: 6, difficulty: "All Levels" },
+      features: ["50 Study Sets", "PDF Downloads", "Visual Learning"],
+      stats: { sets: 50, topics: 30, difficulty: "All Levels" },
       isNew: true,
     },
     {

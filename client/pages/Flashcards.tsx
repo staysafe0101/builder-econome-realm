@@ -24,51 +24,14 @@ import {
 
 export default function Flashcards() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedSet, setSelectedSet] = useState(0);
   const [currentCard, setCurrentCard] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [learnedCards, setLearnedCards] = useState<Set<number>>(new Set());
 
-  const flashcards = [
-    {
-      id: 1,
-      term: "Budget",
-      definition:
-        "A plan for how to spend and save money over a specific period of time",
-      category: "Basics",
-      learned: false,
-    },
-    {
-      id: 2,
-      term: "Credit Score",
-      definition:
-        "A number (300-850) that represents how likely you are to pay back borrowed money",
-      category: "Credit",
-      learned: true,
-    },
-    {
-      id: 3,
-      term: "Interest",
-      definition:
-        "Money charged by lenders or paid by banks for borrowing or saving money",
-      category: "Basics",
-      learned: false,
-    },
-    {
-      id: 4,
-      term: "Investment",
-      definition:
-        "Using money to buy something that you expect will earn more money over time",
-      category: "Investing",
-      learned: false,
-    },
-    {
-      id: 5,
-      term: "Emergency Fund",
-      definition:
-        "Money saved specifically for unexpected expenses or financial emergencies",
-      category: "Savings",
-      learned: true,
-    },
-  ];
+  const flashcardSets = getAllFlashcardSets();
+  const currentSet = flashcardSets[selectedSet];
+  const flashcards = currentSet?.cards || [];
 
   const wordOfTheDay = {
     term: "Compound Interest",

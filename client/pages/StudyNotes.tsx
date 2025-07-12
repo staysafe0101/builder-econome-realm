@@ -25,23 +25,7 @@ import {
   Filter,
 } from "lucide-react";
 
-const studyNotes = [
-  {
-    id: 1,
-    title: "Budgeting Basics",
-    category: "Budgeting",
-    difficulty: "Beginner",
-    icon: PiggyBank,
-    color: "econome-green",
-    content: [
-      "💰 **What is a Budget?** A plan for how you'll spend and save your money",
-      "🎯 **50/30/20 Rule:** 50% needs, 30% wants, 20% savings",
-      "📝 **Track Everything:** Write down all your income and expenses",
-      "🔄 **Review Monthly:** Check if you're sticking to your plan",
-      "💡 **Pro Tip:** Use apps or spreadsheets to make tracking easier!",
-    ],
-    downloadSize: "2.1 MB",
-  },
+const studyNotes = getAllStudyNotes();
   {
     id: 2,
     title: "Credit Card Fundamentals",

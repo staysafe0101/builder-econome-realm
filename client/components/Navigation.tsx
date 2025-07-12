@@ -21,6 +21,7 @@ export default function Navigation() {
     { path: "/learn-hub", label: "Learn Hub", icon: Gamepad2 },
     { path: "/flashcards", label: "Flashcards", icon: CreditCard },
     { path: "/study-notes", label: "Study Notes", icon: BookOpen },
+    { path: "/chat-with-cash", label: "Chat with Cash", icon: MessageCircle },
     { path: "/profile", label: "Profile", icon: User },
     { path: "/about", label: "About", icon: Info },
   ];

@@ -238,7 +238,7 @@ export default function WordSearchGame({ onComplete }: WordSearchGameProps) {
 
   const checkForWord = () => {
     const selectedWord = currentSelection
-      .map((pos) => grid[pos.row][pos.col].letter)
+      .map((pos) => grid[pos.row]?.[pos.col]?.letter || "")
       .join("");
 
     const reversedWord = selectedWord.split("").reverse().join("");

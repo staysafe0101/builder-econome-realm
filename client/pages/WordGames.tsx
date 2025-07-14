@@ -4,12 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import WordSearchGame from "@/components/games/WordSearchGame";
 import ConnectionsGame from "@/components/games/ConnectionsGame";
+import GoldCashAdventureGame from "@/components/games/GoldCashAdventureGame";
 import CashMascot from "@/components/CashMascot";
-import { Search, Link, Trophy, Clock } from "lucide-react";
+import { Search, Link, Trophy, Clock, Users } from "lucide-react";
 
 export default function WordGames() {
   const [wordSearchScore, setWordSearchScore] = useState<number | null>(null);
   const [connectionsScore, setConnectionsScore] = useState<number | null>(null);
+  const [adventureScore, setAdventureScore] = useState<number | null>(null);
   const [mascotMessage, setMascotMessage] = useState("");
 
   const handleWordSearchComplete = (score: number) => {
@@ -30,8 +32,17 @@ export default function WordGames() {
     }
   };
 
+  const handleAdventureComplete = (score: number) => {
+    setAdventureScore(score);
+    setMascotMessage(
+      "Amazing teamwork! Gold Guy and Cash Girl make a perfect financial team! 🎉",
+    );
+  };
+
   const getTotalScore = () => {
-    return (wordSearchScore || 0) + (connectionsScore || 0);
+    return (
+      (wordSearchScore || 0) + (connectionsScore || 0) + (adventureScore || 0)
+    );
   };
 
   return (
@@ -48,10 +59,10 @@ export default function WordGames() {
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-econome-green-800 mb-4">
-            Word Games
+            Games Hub
           </h1>
           <p className="text-xl text-econome-green-600 mb-6">
-            Test your financial vocabulary with fun word challenges!
+            Test your financial skills with word challenges and adventure games!
           </p>
 
           {/* Score Summary */}
@@ -69,7 +80,7 @@ export default function WordGames() {
 
         {/* Game Tabs */}
         <Tabs defaultValue="wordsearch" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-8">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="wordsearch" className="flex items-center gap-2">
               <Search className="w-4 h-4" />
               Word Search
@@ -80,6 +91,10 @@ export default function WordGames() {
             >
               <Link className="w-4 h-4" />
               Connections
+            </TabsTrigger>
+            <TabsTrigger value="adventure" className="flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              Adventure
             </TabsTrigger>
           </TabsList>
 
@@ -185,10 +200,62 @@ export default function WordGames() {
             {/* Connections Game */}
             <ConnectionsGame onComplete={handleConnectionsComplete} />
           </TabsContent>
+
+          <TabsContent value="adventure" className="space-y-6">
+            {/* Adventure Info */}
+            <Card className="border-2 border-econome-green-200">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-econome-green-800">
+                  <Users className="w-5 h-5" />
+                  Gold Guy & Cash Girl Adventure
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="font-semibold text-econome-green-700 mb-2">
+                      How to Play:
+                    </h3>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      <li>
+                        • Control Gold Guy (WASD) and Cash Girl (Arrow Keys)
+                      </li>
+                      <li>• Use each character's unique abilities</li>
+                      <li>• Solve puzzles requiring teamwork</li>
+                      <li>• Balance wealth types to progress</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-econome-green-700 mb-2">
+                      Characters:
+                    </h3>
+                    <ul className="text-sm space-y-1">
+                      <li className="flex items-center gap-2">
+                        <span>🟡</span>
+                        <span>Gold Guy - Heavy, activates weight switches</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span>💚</span>
+                        <span>Cash Girl - Light, floats and glides</span>
+                      </li>
+                    </ul>
+                    {adventureScore !== null && (
+                      <p className="font-semibold text-econome-green-600 mt-2">
+                        Your best: {adventureScore} points
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Adventure Game */}
+            <GoldCashAdventureGame onComplete={handleAdventureComplete} />
+          </TabsContent>
         </Tabs>
 
         {/* Achievement Section */}
-        {(wordSearchScore || connectionsScore) && (
+        {(wordSearchScore || connectionsScore || adventureScore) && (
           <Card className="mt-8 bg-gradient-to-r from-econome-green-50 to-econome-yellow-50 border-2 border-econome-green-200">
             <CardHeader>
               <CardTitle className="text-center text-econome-green-800">
@@ -196,7 +263,7 @@ export default function WordGames() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-3 gap-4">
                 {wordSearchScore && (
                   <div className="text-center p-4 bg-white rounded-lg shadow-sm">
                     <Search className="w-8 h-8 mx-auto text-econome-green-600 mb-2" />
@@ -217,6 +284,18 @@ export default function WordGames() {
                     </h3>
                     <p className="text-2xl font-bold text-econome-green-600">
                       {connectionsScore}
+                    </p>
+                    <p className="text-xs text-gray-500">points</p>
+                  </div>
+                )}
+                {adventureScore !== null && (
+                  <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                    <Users className="w-8 h-8 mx-auto text-econome-green-600 mb-2" />
+                    <h3 className="font-semibold text-econome-green-800 mb-1">
+                      Adventure Hero
+                    </h3>
+                    <p className="text-2xl font-bold text-econome-green-600">
+                      {adventureScore}
                     </p>
                     <p className="text-xs text-gray-500">points</p>
                   </div>

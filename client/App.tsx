@@ -14,6 +14,7 @@ import LearnHub from "./pages/LearnHub";
 import GameLevels from "./pages/GameLevels";
 import Flashcards from "./pages/Flashcards";
 import StudyNotes from "./pages/StudyNotes";
+import WordGames from "./pages/WordGames";
 import ChatWithCash from "./pages/ChatWithCash";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/game-levels" element={<GameLevels />} />
             <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/study-notes" element={<StudyNotes />} />
+            <Route path="/word-games" element={<WordGames />} />
             <Route path="/chat-with-cash" element={<ChatWithCash />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/about" element={<About />} />

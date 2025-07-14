@@ -79,10 +79,40 @@ export default function CashMascot({
             `,
           }}
         >
-          {/* Stork face */}
-          <div className="text-center">
-            <div className="text-2xl mb-1">🦩</div>
-            <div className="text-sm">{moodExpressions[mood]}</div>
+          {/* 3D Animated Goose */}
+          <div className="relative w-full h-full flex items-center justify-center">
+            {/* Goose body */}
+            <div className="relative">
+              {/* Main body */}
+              <div className="w-8 h-6 bg-white rounded-full shadow-md relative animate-pulse">
+                <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-full"></div>
+              </div>
+
+              {/* Head */}
+              <div className="absolute -top-2 left-6 w-5 h-5 bg-white rounded-full shadow-sm animate-bounce">
+                <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50 rounded-full"></div>
+                {/* Eye */}
+                <div className="absolute top-1.5 left-1 w-1 h-1 bg-black rounded-full animate-pulse"></div>
+
+                {/* Beak */}
+                <div className="absolute top-2 -right-1 w-2 h-1 bg-orange-400 rounded-r-full transform rotate-12 animate-wiggle"></div>
+              </div>
+
+              {/* Wing */}
+              <div className="absolute top-1 left-1 w-3 h-2 bg-gray-100 rounded-full transform -rotate-12 animate-pulse"></div>
+
+              {/* Tail */}
+              <div className="absolute top-2 -left-1 w-2 h-1 bg-white rounded-l-full transform rotate-45 animate-wiggle"></div>
+
+              {/* Feet */}
+              <div className="absolute -bottom-1 left-2 w-1 h-1 bg-orange-400 rounded-full"></div>
+              <div className="absolute -bottom-1 left-4 w-1 h-1 bg-orange-400 rounded-full"></div>
+            </div>
+
+            {/* Mood expression overlay */}
+            <div className="absolute bottom-0 right-0 text-xs opacity-80">
+              {moodExpressions[mood]}
+            </div>
           </div>
         </div>
 

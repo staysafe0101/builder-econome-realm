@@ -196,7 +196,7 @@ export default function WordSearchGame({ onComplete }: WordSearchGameProps) {
   };
 
   const handleCellMouseEnter = (row: number, col: number) => {
-    if (isSelecting) {
+    if (isSelecting && grid[row] && grid[row][col]) {
       const newSelection = [...currentSelection, { row, col }];
       setCurrentSelection(newSelection);
       updateGridSelection(newSelection);

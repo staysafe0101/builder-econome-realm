@@ -126,6 +126,21 @@ export const games: Game[] = [
     completed: false,
     component: "BankingQuestGame",
   },
+  {
+    id: 9,
+    title: "Gold Guy & Cash Girl Adventure",
+    description:
+      "Cooperative puzzle game balancing wealth types to solve levels",
+    category: "Teamwork",
+    difficulty: "Medium",
+    xpReward: 150,
+    estimatedTime: "25 min",
+    icon: "Users",
+    color: "econome-yellow",
+    unlocked: true,
+    completed: false,
+    component: "GoldCashAdventureGame",
+  },
 ];
 
 export const getUnlockedGames = (): Game[] => {

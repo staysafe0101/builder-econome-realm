@@ -112,12 +112,12 @@ export default function WordSearchGame({ onComplete }: WordSearchGameProps) {
       while (!placed && attempts < 100) {
         const direction =
           directions[Math.floor(Math.random() * directions.length)];
-        const maxRow = GRID_SIZE - direction.dr * word.length;
-        const maxCol = GRID_SIZE - direction.dc * word.length;
+        const maxRow = GRID_SIZE - Math.abs(direction.dr) * word.length;
+        const maxCol = GRID_SIZE - Math.abs(direction.dc) * word.length;
 
-        if (maxRow >= 0 && maxCol >= 0) {
-          const startRow = Math.floor(Math.random() * (maxRow + 1));
-          const startCol = Math.floor(Math.random() * (maxCol + 1));
+        if (maxRow > 0 && maxCol > 0) {
+          const startRow = Math.floor(Math.random() * maxRow);
+          const startCol = Math.floor(Math.random() * maxCol);
 
           // Check if word can be placed
           let canPlace = true;
@@ -126,9 +126,18 @@ export default function WordSearchGame({ onComplete }: WordSearchGameProps) {
           for (let i = 0; i < word.length; i++) {
             const row = startRow + direction.dr * i;
             const col = startCol + direction.dc * i;
+
+            // Boundary check
+            if (row < 0 || row >= GRID_SIZE || col < 0 || col >= GRID_SIZE) {
+              canPlace = false;
+              break;
+            }
+
             positions.push({ row, col });
 
             if (
+              newGrid[row] &&
+              newGrid[row][col] &&
               newGrid[row][col].letter !== "" &&
               newGrid[row][col].letter !== word[i]
             ) {

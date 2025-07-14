@@ -301,7 +301,8 @@ export default function WordSearchGame({ onComplete }: WordSearchGameProps) {
           {/* Game Grid */}
           <div className="flex-1">
             <div
-              className="grid grid-cols-15 gap-1 select-none cursor-pointer mb-4"
+              className="grid gap-1 select-none cursor-pointer mb-4"
+              style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)` }}
               onMouseLeave={() => {
                 if (isSelecting) {
                   setIsSelecting(false);
@@ -316,9 +317,9 @@ export default function WordSearchGame({ onComplete }: WordSearchGameProps) {
                     key={`${rowIndex}-${colIndex}`}
                     className={`
                       w-6 h-6 flex items-center justify-center text-xs font-bold border cursor-pointer transition-colors
-                      ${cell.isSelected ? "bg-econome-green-200 border-econome-green-400" : ""}
+                      ${cell?.isSelected ? "bg-econome-green-200 border-econome-green-400" : ""}
                       ${
-                        cell.isPartOfWord &&
+                        cell?.isPartOfWord &&
                         foundWords.has(
                           WORDS.find((w) =>
                             wordPlacements.find(
@@ -342,7 +343,7 @@ export default function WordSearchGame({ onComplete }: WordSearchGameProps) {
                       handleCellMouseEnter(rowIndex, colIndex)
                     }
                   >
-                    {cell.letter}
+                    {cell?.letter || ""}
                   </div>
                 )),
               )}

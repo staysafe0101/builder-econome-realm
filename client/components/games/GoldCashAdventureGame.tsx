@@ -377,10 +377,10 @@ export default function GoldCashAdventureGame({
         // Collect keys
         if (cell === "GK" && character === "gold") {
           newState.goldKeys += 1;
-          setMessage("Gold Guy collected a golden key! 🔑");
+          setMessage("Gold Guy collected a gold bar! 🥇");
         } else if (cell === "CK" && character === "cash") {
           newState.cashKeys += 1;
-          setMessage("Cash Girl collected a cash key! 💵");
+          setMessage("Cash Girl collected a cash bill! 💵");
         }
 
         // Activate switches/plates
@@ -565,13 +565,21 @@ export default function GoldCashAdventureGame({
           <div className="relative w-full h-full flex items-center justify-center">
             <div className="relative transform-gpu animate-spin-slow">
               <div
-                className="w-4 h-4 rounded-sm bg-gradient-to-br from-yellow-300 to-yellow-600 shadow-lg"
-                style={{ boxShadow: "0 0 6px rgba(255, 215, 0, 0.8)" }}
+                className="w-5 h-2 rounded-sm bg-gradient-to-br from-yellow-200 to-yellow-600 shadow-lg"
+                style={{ boxShadow: "0 0 8px rgba(255, 215, 0, 0.9)" }}
               >
-                <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-1 h-2 bg-yellow-800 rounded-t"></div>
-                <div className="absolute top-1.5 left-1/2 transform -translate-x-1/2 w-2 h-0.5 bg-yellow-800 rounded"></div>
+                {/* Gold bar text */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center text-xs font-bold text-yellow-900"
+                  style={{ fontSize: "6px" }}
+                >
+                  AU
+                </div>
+                {/* Shine effects */}
+                <div className="absolute top-0 left-1 w-1 h-0.5 bg-yellow-100 rounded opacity-80"></div>
+                <div className="absolute bottom-0 right-1 w-1 h-0.5 bg-yellow-800 rounded opacity-60"></div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent to-white opacity-30 rounded-sm"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent to-white opacity-40 rounded-sm"></div>
             </div>
           </div>
         );
@@ -699,7 +707,7 @@ export default function GoldCashAdventureGame({
                 Moves: {gameState.moves}
               </div>
               <div className="flex items-center gap-2">
-                <span>🔑 {gameState.goldKeys}</span>
+                <span>🥇 {gameState.goldKeys}</span>
                 <span>💵 {gameState.cashKeys}</span>
               </div>
             </div>
@@ -721,7 +729,7 @@ export default function GoldCashAdventureGame({
                     <li>• Heavy - activates weight switches</li>
                     <li>• Can stand on lava 🌋</li>
                     <li>• Sinks in water 🌊</li>
-                    <li>• Collects spinning golden keys</li>
+                    <li>• Collects spinning gold bars</li>
                   </ul>
                 </div>
                 <div>
@@ -733,7 +741,7 @@ export default function GoldCashAdventureGame({
                     <li>• Light - activates pressure plates</li>
                     <li>• Floats on water 🌊</li>
                     <li>• Burns in fire/lava 🔥</li>
-                    <li>• Collects floating cash keys</li>
+                    <li>• Collects floating cash bills</li>
                   </ul>
                 </div>
               </div>
@@ -782,8 +790,8 @@ export default function GoldCashAdventureGame({
             <div className="grid grid-cols-4 gap-2 text-xs bg-gray-50 p-3 rounded">
               <div>🔥 Fire trap | 🌋 Lava</div>
               <div>🌊 Water | ⚖️ Weight switch</div>
-              <div>💨 Pressure plate | 🔑 Gold key</div>
-              <div>💵 Cash key | 🚪 Exit door</div>
+              <div>💨 Pressure plate | 🥇 Gold bar</div>
+              <div>💵 Cash bill | 🚪 Exit door</div>
             </div>
 
             {/* Game Complete */}

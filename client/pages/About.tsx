@@ -139,114 +139,19 @@ export default function About() {
           </Card>
         </section>
 
-        {/* Stats Section */}
-        <section className="mb-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <Card key={index} className="text-center">
-                  <CardContent className="pt-6">
-                    <IconComponent className="w-8 h-8 text-econome-blue-600 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-econome-green-800">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
 
-        {/* Team Section */}
-        <section className="mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-econome-green-800 mb-4">
-              Meet Our Team
-            </h2>
-            <p className="text-lg text-gray-600">
-              Passionate educators and developers working to transform financial
-              education
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="text-center border-econome-blue-200">
-                <CardHeader>
-                  <div className="w-20 h-20 bg-gradient-to-br from-econome-blue-400 to-econome-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
-                    {member.avatar}
-                  </div>
-                  <CardTitle className="text-econome-blue-800">
-                    {member.name}
-                  </CardTitle>
-                  <CardDescription className="text-econome-green-600 font-semibold">
-                    {member.role}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{member.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+
 
         {/* Contact Section */}
         <section>
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Contact Info */}
-            <Card className="border-econome-yellow-200">
-              <CardHeader>
-                <CardTitle className="text-2xl text-econome-yellow-800 flex items-center gap-2">
-                  <Heart className="w-6 h-6" />
-                  Get in Touch
-                </CardTitle>
-                <CardDescription>
-                  We'd love to hear from you! Reach out with questions,
-                  feedback, or just to say hello.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-econome-blue-600" />
-                  <span>hello@econome.edu</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-econome-blue-600" />
-                  <span>1-800-ECONOME</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-econome-blue-600" />
-                  <span>San Francisco, CA</span>
-                </div>
-
-                <div className="pt-4">
-                  <h4 className="font-semibold text-econome-green-800 mb-2">
-                    Office Hours
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    Monday - Friday: 9:00 AM - 6:00 PM PST
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Saturday: 10:00 AM - 4:00 PM PST
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Contact Form */}
-            <Card>
+            <Card className="border-econome-green-200">
               <CardHeader>
                 <CardTitle className="text-2xl text-econome-green-800">
-                  Send us a Message
+                  Get in Touch
                 </CardTitle>
-                <CardDescription>
-                  Fill out the form below and we'll get back to you within 24
-                  hours.
-                </CardDescription>
-              </CardHeader>
               <CardContent>
                 <form className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">

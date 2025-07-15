@@ -139,10 +139,6 @@ export default function About() {
           </Card>
         </section>
 
-
-
-
-
         {/* Contact Section */}
         <section>
           <div className="grid lg:grid-cols-2 gap-8">
@@ -152,6 +148,7 @@ export default function About() {
                 <CardTitle className="text-2xl text-econome-green-800">
                   Get in Touch
                 </CardTitle>
+              </CardHeader>
               <CardContent>
                 <form className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
